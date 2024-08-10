@@ -3,12 +3,12 @@
 
 #include "Arduino.h"
 
-class myPrefrences{
+class MyPrefrences{
     private:
     public:
-        myPrefrences(){}
-        
-        void setup()
+        MyPrefrences(){}
+        uint8_t ips[4];
+        void begin()
         {
 
         }

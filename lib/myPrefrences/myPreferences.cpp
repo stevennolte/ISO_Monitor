@@ -1,22 +1,23 @@
 #include "Arduino.h"
 #include "Preferences.h"
 
-class myPrefrences{
+class MyPrefrences{
     private:
     
     public:
         
-        myPrefrences(){}
+        MyPrefrences(){}
         Preferences prefs;
+        uint8_t ips[4];
 
-        void setup()
+        void begin()
         {
             prefs.begin("setup",false);
         }
         
         uint8_t * getIPAddr()
         {
-            uint8_t ips[4];
+            
             ips[0] = prefs.getInt("IP1",192);
             ips[1] = prefs.getInt("IP2",168);
             ips[2] = prefs.getInt("IP3",1);

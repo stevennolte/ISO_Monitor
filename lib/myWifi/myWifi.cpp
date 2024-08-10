@@ -2,15 +2,17 @@
 #include "Arduino.h"
 #include "myWifi.h"
 
+
+
 MyWifi::MyWifi()
 {
     
 };
 
-bool MyWifi::connect(){
+uint8_t MyWifi::connect(uint8_t * ipAddr){
     // IPAddress local_IP(192, 168, 0, getAddress());
-    IPAddress local_IP(address_1, address_2, address_3, address_4);
-    IPAddress gateway(address_1, address_2, address_3, 1);
+    IPAddress local_IP(ipAddr[0], ipAddr[1], ipAddr[2], ipAddr[3]);
+    IPAddress gateway(ipAddr[0], ipAddr[1], ipAddr[2], 1);
     IPAddress subnet(255, 255, 255, 0);
     
     int n = WiFi.scanNetworks();
@@ -38,5 +40,6 @@ bool MyWifi::connect(){
     }
     Serial.print("IP Address: ");
     Serial.println(WiFi.localIP());
-    return true;
+    
+    return 1;
 }
